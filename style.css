@@ -63,7 +63,7 @@ label {
 }
 
 .last-result > p {
-    text-align: justify;
+    padding: 5px 5px;
     border-radius: 10px;
     font-size: 32px;
     margin-top: 10px;

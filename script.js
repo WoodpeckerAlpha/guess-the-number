@@ -17,36 +17,29 @@ function checkGuess(event) {
     const guessResult = document.createElement("p");
     guessResult.textContent = `Guess ${guessCount}: ${userGuess} - `;
 
-    if (
-        isNaN(userGuess) ||
-        userGuess === 0 ||
-        userGuess < 1 ||
-        userGuess > 100
-    ) {
+    if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
         guessResult.textContent +=
             "Please enter a valid number between 1 and 100.";
-        guessResult.style.backgroundColor = "orange";
-        guessField.focus();
+        guessResult.style.backgroundColor = "#ffc75f";
     } else if (userGuess === randomNumber) {
         guessResult.textContent += "Correct!";
-        guessResult.style.backgroundColor = "green";
+        guessResult.style.backgroundColor = "328032";
         setGameOver();
     } else if (guessCount === 10) {
-        guessResult.style.backgroundColor = "red";
+        guessResult.style.backgroundColor = "#ff8282";
         guessResult.textContent += "Game over!";
         setGameOver();
     } else {
-        guessResult.style.backgroundColor = "red";
+        guessResult.style.backgroundColor = "#ff8282";
         if (userGuess < randomNumber) {
             guessResult.textContent += " Too low.";
-        } else if (userGuess > randomNumber) {
+        } else {
             guessResult.textContent += " Too high.";
         }
         guessCount++;
     }
 
     lastResult.prepend(guessResult);
-
     guessField.value = "";
     guessField.focus();
 }
@@ -70,16 +63,16 @@ function resetGame() {
         resetPara.textContent = "";
     }
 
-    resetButton.parentNode.removeChild(resetButton);
+    if (resetButton) {
+        resetButton.remove();
+    }
 
     guessField.disabled = false;
     guessSubmit.disabled = false;
     guessField.value = "";
-    guesses.textContent = "";
-    lastResult.textContent = "";
     guessField.focus();
 
     lastResult.style.backgroundColor = "white";
 
     randomNumber = Math.floor(Math.random() * 100) + 1;
-    }
+}
