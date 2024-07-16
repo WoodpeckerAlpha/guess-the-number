@@ -63,7 +63,6 @@ function resetGame() {
         resetPara.textContent = "";
     }
 
-    
     resetButton.remove();
     guessField.disabled = false;
     guessSubmit.disabled = false;
