@@ -23,7 +23,7 @@ function checkGuess(event) {
         guessResult.style.backgroundColor = "#ffc75f";
     } else if (userGuess === randomNumber) {
         guessResult.textContent += "Correct!";
-        guessResult.style.backgroundColor = "328032";
+        guessResult.style.backgroundColor = "#328032";
         setGameOver();
     } else if (guessCount === 10) {
         guessResult.style.backgroundColor = "#ff8282";
